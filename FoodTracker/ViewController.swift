@@ -18,14 +18,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Handle the text field’s user input through delegate callbacks.
+        // 通过回调代理来处理文本域的内容
         nameTextField.delegate = self
     }
     
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
+        //隐藏键盘
         textField.resignFirstResponder()
         return true
     }
@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
+        // 把被选中的图像在 photoImageView 处显示出来
         photoImageView.image = selectedImage
         
         // Dismiss the picker.
