@@ -23,7 +23,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // 通过回调代理来处理文本域的内容
         nameTextField.delegate = self
+        
+        if let meal = meal {
+            navigationItem.title = meal.name
+            nameTextField.text   = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
 
+        //检查文本域，只有文本域非空的时候才能使用『Save』按钮
         checkValidMealName()
     }
     
@@ -36,7 +44,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-//        saveButton.enabled = false
+        //saveButton.enabled = false
         checkValidMealName()
         navigationItem.title = textField.text
     }
@@ -93,6 +101,20 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             meal = Meal(name: name, photo: photo, rating: rating)
         }
     }
+    
+    
+    // Cancel 按钮对应的 action
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        if isPresentingInAddMealMode {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
+            navigationController!.popViewControllerAnimated(true)
+        }
+    }
+    
+    
     
 }
 

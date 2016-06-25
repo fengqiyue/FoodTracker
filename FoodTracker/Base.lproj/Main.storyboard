@@ -73,7 +73,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="CyJ-GR-IAV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cIb-lE-7N5"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cIb-lE-7N5">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="yqS-Ny-7o5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="X7K-eb-2Z9">
                             <connections>
                                 <segue destination="jaT-A9-S2f" kind="unwind" unwindAction="unwindToMealList:" id="I2M-G0-9nz"/>
@@ -95,7 +99,7 @@
                 </tapGestureRecognizer>
                 <exit id="jaT-A9-S2f" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="-65"/>
+            <point key="canvasLocation" x="2210" y="-1057"/>
         </scene>
         <!--Your Meals-->
         <scene sceneID="ZMy-3c-7PU">
@@ -133,6 +137,7 @@
                                     <outlet property="nameLabel" destination="ETv-d8-vuw" id="ENy-Uy-lPV"/>
                                     <outlet property="photoImageView" destination="gFA-Dc-i17" id="gce-Q9-FLh"/>
                                     <outlet property="ratingControl" destination="m8O-Qk-fFc" id="d4w-09-kkQ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="1wR-1W-ExF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -150,7 +155,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="153" y="-59"/>
+            <point key="canvasLocation" x="822" y="-1057"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vKi-4b-loj">
@@ -168,7 +173,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsM-et-iv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-543" y="-65"/>
+            <point key="canvasLocation" x="49" y="-1089"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qjL-hU-M4b">
@@ -186,10 +191,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrr-PW-q6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="-59"/>
+            <point key="canvasLocation" x="1526" y="-725"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="143" height="88"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1wR-1W-ExF"/>
+    </inferredMetricsTieBreakers>
 </document>
