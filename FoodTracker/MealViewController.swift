@@ -15,6 +15,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var descriptionTextField: UITextField!
     
     var meal: Meal?
     
@@ -29,6 +30,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             nameTextField.text   = meal.name
             photoImageView.image = meal.photo
             ratingControl.rating = meal.rating
+            descriptionTextField.text = meal.mydescription
         }
 
         //检查文本域，只有文本域非空的时候才能使用『Save』按钮
@@ -96,9 +98,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
             let rating = ratingControl.rating
+            let mydescription = descriptionTextField.text
             
             // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(name: name, photo: photo, rating: rating)
+            meal = Meal(name: name, photo: photo, rating: rating, description: mydescription!)
         }
     }
     

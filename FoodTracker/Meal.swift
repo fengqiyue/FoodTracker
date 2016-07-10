@@ -15,12 +15,14 @@ class Meal :NSObject, NSCoding {
     var name : String
     var photo : UIImage?
     var rating : Int
+    var mydescription: String
     
     // MARK: Types
     struct PropertyKey {
         static let nameKey = "name"
         static let photoKey = "photo"
         static let ratingKey = "rating"
+        static let descriptionKey = "description"
     }
     
     // MARK: Archiving Paths
@@ -28,11 +30,12 @@ class Meal :NSObject, NSCoding {
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("meals")
     
-    init?(name: String, photo:UIImage?, rating: Int){
+    init?(name: String, photo:UIImage?, rating: Int, description: String){
         // 初始化要存储的属性
         self.name = name
         self.photo = photo
         self.rating = rating
+        self.mydescription = description
         
         super.init()
         
@@ -48,6 +51,7 @@ class Meal :NSObject, NSCoding {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeObject(photo, forKey: PropertyKey.photoKey)
         aCoder.encodeInteger(rating, forKey: PropertyKey.ratingKey)
+        aCoder.encodeObject(mydescription, forKey: PropertyKey.descriptionKey)
     }
 
     required convenience init?(coder aDecoder: NSCoder) {
@@ -58,8 +62,10 @@ class Meal :NSObject, NSCoding {
         
         let rating = aDecoder.decodeIntegerForKey(PropertyKey.ratingKey)
         
+        let description = aDecoder.decodeObjectForKey(PropertyKey.descriptionKey) as! String
+        
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating)
+        self.init(name: name, photo: photo, rating: rating, description: description)
     }
     
 

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mee-g2-51e">
-                                <rect key="frame" x="20" y="81" width="560" height="418"/>
+                                <rect key="frame" x="20" y="81" width="560" height="500"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJR-vy-Xap">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
@@ -41,6 +41,11 @@
                                         <rect key="frame" x="160" y="374" width="240" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="500" placeholderIntrinsicHeight="70" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Enter the meal descriptio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urO-R6-lVm">
+                                        <rect key="frame" x="30" y="430" width="500" height="70"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tJR-vy-Xap" secondAttribute="trailing" id="C2n-7j-OaC"/>
@@ -85,6 +90,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionTextField" destination="urO-R6-lVm" id="Urm-Tx-Rqc"/>
                         <outlet property="nameTextField" destination="tJR-vy-Xap" id="0hI-wb-oSr"/>
                         <outlet property="photoImageView" destination="38c-f4-z28" id="0eF-uv-DCb"/>
                         <outlet property="ratingControl" destination="kFN-tn-39j" id="pSG-ro-I76"/>
@@ -104,7 +110,6 @@
         <!--Your Meals-->
         <scene sceneID="ZMy-3c-7PU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xy4-1X-pP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Vae-3z-qFV" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cwc-6A-uTs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -121,7 +126,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETv-d8-vuw">
                                             <rect key="frame" x="97" y="8" width="495" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8O-Qk-fFc" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
@@ -154,6 +159,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xy4-1X-pP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="-1057"/>
         </scene>
@@ -195,7 +201,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultPhoto" width="143" height="88"/>
+        <image name="defaultPhoto" width="256" height="257"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1wR-1W-ExF"/>
